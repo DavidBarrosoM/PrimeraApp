@@ -1,1 +1,39 @@
 <h1 style="text-align: center;">Empleados de la Empresa</h1>
+<p>Cantidad de empleados: {{numeroEmpleados}}</p>
+<p>Empleados activos: {{getEmpleados()}}</p>
+<p>Hay empleados en la empresa: {{getEmpleados().length===0 ? "No":"Si" }}</p>
+<p>El jefe de la empresa es: {{jefe.value}}</p>
+<p>Ejemplo con onClick</p>
+<p>
+    Introduce el jefe  <input type="text" #jefe/>
+    <input type="button" value="Agregar jefe" (click)="agregarJefe(jefe.value)"/>
+</p>
+<p>Ejemplo con keyup</p>
+<p>
+    El nombre de la empresa es: {{empresa.value}}
+</p>
+<p>
+    Introduce el nombre de la empresa <input type="text" #empresa (keyup)="0" [disabled]="habilitacionCuadro"/>
+
+</p>
+
+<br/>
+<br/>
+{{textoDeRegistro}}<br/>
+Registrado empleado: <input type="checkbox" id ="registrado" [checked]="usuarioRegistrado" (click)="setUsuarioRegistrado()"/>
+{{getRegistroUsario()}}
+
+<br/>
+<br/>
+Ahora con radio<br/>
+{{textoDeRegistro2}}<br/>
+
+Registrado2: <input type="radio" value="si" name ="nregistrado2" id="registrado2" [checked]="usuarioRegistrado2" (click)="setUsuarioRegistrado2($event)"/><br/>
+No Registrado2: <input type="radio" value="no" name ="nregistrado2" (click)="setUsuarioRegistrado2($event)"/><br/>
+{{getRegistroUsario2()}}
+
+<br/>
+<br/>
+<p>Ejemplo binding bidireccional</p>
+<p>Cargo: {{cargo}}</p>
+Introduce el cargo del empleado <input type="text" [(ngModel)]="cargo"/><br/>
